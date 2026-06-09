@@ -16,7 +16,7 @@ function Rotator({ items }) {
   );
 }
 
-function PageHero({ eyebrow, prefix, rotating, title, subtitle, cta, ctaHref, motif }) {
+function PageHero({ eyebrow, prefix, rotating, title, subtitle, cta, ctaHref, onCtaClick, motif }) {
   return (
     <section className="phero">
       <div className={`hero-bg ${motif === "dots" ? "bg-dotgrid" : motif === "topo" ? "bg-topo" : ""}`}></div>
@@ -29,7 +29,9 @@ function PageHero({ eyebrow, prefix, rotating, title, subtitle, cta, ctaHref, mo
           <p className="phero-rot"><span className="phero-rot-pre">{prefix}</span> <Rotator items={rotating} /></p>
         </Reveal>
         <Reveal delay={240} className="hero-actions">
-          <a href={ctaHref} target="_blank" rel="noopener noreferrer" className="btn btn--lg">{cta}<Icon name="arrow" /></a>
+          {onCtaClick
+            ? <button onClick={onCtaClick} className="btn btn--lg">{cta}<Icon name="arrow" /></button>
+            : <a href={ctaHref} target="_blank" rel="noopener noreferrer" className="btn btn--lg">{cta}<Icon name="arrow" /></a>}
         </Reveal>
       </div>
     </section>
@@ -164,7 +166,7 @@ function ResponsibilityPage({ t, motif, go }) {
   const [sponsorOpen, setSponsorOpen] = useState(false);
   return (
     <main>
-      <PageHero eyebrow={r.eyebrow} prefix={r.heroPrefix} rotating={r.rotating} title={r.title} subtitle={r.subtitle} cta={r.cta} ctaHref="#/responsibility" motif={motif} />
+      <PageHero eyebrow={r.eyebrow} prefix={r.heroPrefix} rotating={r.rotating} title={r.title} subtitle={r.subtitle} cta={r.cta} onCtaClick={() => document.getElementById("rs-cases").scrollIntoView({ behavior: "smooth" })} motif={motif} />
 
       {/* Philosophy */}
       <section className="section rs-phil">
@@ -215,7 +217,7 @@ function ResponsibilityPage({ t, motif, go }) {
       {sponsorOpen && <SponsorModal t={t} onClose={() => setSponsorOpen(false)} />}
 
       {/* Case studies */}
-      <section className="section rs-cases">
+      <section id="rs-cases" className="section rs-cases">
         <div className="wrap">
           <div className="sec-head">
             <Reveal><Eyebrow>{r.eyebrow}</Eyebrow></Reveal>
