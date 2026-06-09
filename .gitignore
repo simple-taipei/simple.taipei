@@ -9,8 +9,11 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# dependencies (if tooling is added later)
+# dependencies
 /node_modules
+
+# Vite build output (deployed via GitHub Actions to gh-pages branch)
+/dist
 
 # local env files
 .env
