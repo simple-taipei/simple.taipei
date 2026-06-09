@@ -55,7 +55,16 @@
 :root[lang="zh-Hant"] h1,
 :root[lang="zh-Hant"] h2,
 :root[lang="zh-Hant"] h3,
-:root[lang="zh-Hant"] h4 { letter-spacing: -0.01em; font-weight: 700; word-break: keep-all; }
+:root[lang="zh-Hant"] h4 {
+  letter-spacing: -0.01em; font-weight: 700;
+  /* CJK has no spaces — keep-all stops headings wrapping and overflows on
+     mobile. Let CJK break between characters, keep Latin words intact, and
+     respect kinsoku so punctuation never starts a line. */
+  word-break: normal;
+  word-break: auto-phrase; /* nicer phrase-aware wrapping where supported */
+  line-break: strict;
+  overflow-wrap: anywhere;
+}
 
 /* never use cursive fallback (標楷體) for Chinese hero hand word — always show accent plain version */
 :root[lang="zh-Hant"] .hand-swap-hand { display: none !important; }
@@ -110,6 +119,20 @@ body {
   transition: background-color .4s ease, color .4s ease;
 }
 :lang(zh) { line-height: 1.75; }
+/* CJK body copy: break between characters as needed, keep Latin words/terms
+   (IP Transit, BGP, ISO 27001…) whole, and apply kinsoku line-break rules. */
+:lang(zh) p,
+:lang(zh) span,
+:lang(zh) a,
+:lang(zh) li,
+:lang(zh) dt,
+:lang(zh) dd { word-break: normal; line-break: strict; overflow-wrap: anywhere; }
+
+/* belt-and-braces: stop sideways scroll on phones (sticky is already off here,
+   so this won't interfere with the desktop FAQ sidebar). */
+@media (max-width: 900px) {
+  html, body { overflow-x: hidden; }
+}
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);

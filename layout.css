@@ -651,6 +651,17 @@
   .ftr-bottom { flex-wrap: wrap; }
   .ftr-bottom p { white-space: normal; }
   .ftr-legal { text-align: left; }
+
+  /* Services: stack the row so the description isn't crushed between the
+     icon and the CTA, and drop the CTA onto its own line. */
+  .svc-row { grid-template-columns: 44px 1fr; gap: 14px 16px; padding: 22px 0; }
+  .svc-row-ico { width: 44px; height: 44px; }
+  .svc-row-cta { grid-column: 2; justify-self: start; margin-top: 2px; }
+
+  /* The hero title sets its lines explicitly (per-line <span>), so the 40px
+     clamp floor lets an 8-char CJK line fill — and clip — a phone's width.
+     Scale it down a touch so each line fits without overflowing. */
+  .hero-title { font-size: clamp(30px, 8vw, 50px); }
 }
 @media (min-width: 641px) and (max-width: 900px) {
   .promise-cards, .feat-grid, .loc-grid, .ptype-grid, .rs-case-grid, .rs-impact-grid, .partner-grid { grid-template-columns: repeat(2, 1fr); }
