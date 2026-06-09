@@ -184,7 +184,7 @@ function Header({ t, locale, setLocale, theme, toggleTheme, route, go }) {
             }
           </div>
 
-          <a href="https://lg.simple.taipei" target="_blank" rel="noopener noreferrer" className="hdr-link">{nav.lookingGlass}</a>
+          <a href="https://globalping.io/networks/liberally-network" target="_blank" rel="noopener noreferrer" className="hdr-link">{nav.lookingGlass}</a>
         </nav>
 
         <div className="hdr-ctrls">
@@ -210,7 +210,7 @@ function Header({ t, locale, setLocale, theme, toggleTheme, route, go }) {
         <a href="#/" onClick={(e) => {e.preventDefault();go("#/");setTimeout(() => document.getElementById("locations")?.scrollIntoView({ behavior: "smooth" }), 60);}} className="sheet-link">{nav.locations}</a>
         <a href="#/partnership" onClick={(e) => navTo(e, "#/partnership")} className="sheet-link">{nav.partnership}</a>
         <a href="#/responsibility" onClick={(e) => navTo(e, "#/responsibility")} className="sheet-link">{nav.responsibility}</a>
-        <a href="https://lg.simple.taipei" target="_blank" rel="noopener noreferrer" className="sheet-link">{nav.lookingGlass}</a>
+        <a href="https://globalping.io/networks/liberally-network" target="_blank" rel="noopener noreferrer" className="sheet-link">{nav.lookingGlass}</a>
         <a href="https://portal.simple.taipei/" target="_blank" rel="noopener noreferrer" className="btn btn--lg sheet-cta">{nav.portal}</a>
       </div>
     </header>);
@@ -239,7 +239,7 @@ function Footer({ t, go }) {
               <Icon name={copied ? "check" : "copy"} className="ftr-tax-ico" style={copied ? { color: "var(--accent)" } : null} />
             </button>
           </div>
-          <a href="https://lg.simple.taipei" target="_blank" rel="noopener noreferrer" className="ftr-status">
+          <a href="https://status.simple.taipei/status/simple" target="_blank" rel="noopener noreferrer" className="ftr-status">
             <span className="status-dot"></span>
             <span className="kbd">{f.status}</span>
           </a>
