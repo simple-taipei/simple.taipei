@@ -220,13 +220,40 @@ function Header({ t, locale, setLocale, theme, toggleTheme, route, go }) {
 /* ============================================================
    FOOTER
    ============================================================ */
+const STATUS_PAGE = "https://status.simple.taipei/status/simple";
+const STATUS_API = "https://status.simple.taipei/api/status-page/heartbeat/simple";
+
 function Footer({ t, go }) {
   const f = t.footer;
   const [copied, setCopied] = useState(false);
+  // null = unknown (CORS-blocked / offline) → fall back to the static label
+  const [sys, setSys] = useState(null);
   const taxId = "00029376";
   const copyTax = () => {
     navigator.clipboard?.writeText(taxId).then(() => {setCopied(true);setTimeout(() => setCopied(false), 1800);});
   };
+  useEffect(() => {
+    let cancelled = false;
+    fetch(STATUS_API, { headers: { Accept: "application/json" } })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((data) => {
+        if (cancelled || !data || !data.heartbeatList) return;
+        const lists = Object.values(data.heartbeatList);
+        if (!lists.length) return;
+        // status codes: 0=down, 1=up, 2=pending, 3=maintenance
+        const down = lists.filter((b) => b.length && b[b.length - 1].status === 0).length;
+        setSys({ down, level: down === 0 ? "up" : down >= lists.length ? "down" : "degraded" });
+      })
+      .catch(() => {/* CORS / network — keep static fallback */});
+    return () => { cancelled = true; };
+  }, []);
+  const statusLabel =
+    sys && sys.level === "down" ? f.statusDown :
+    sys && sys.level === "degraded" ? (f.statusDegraded || "").replace("{n}", sys.down) :
+    f.status;
+  const statusCls =
+    sys && sys.level === "down" ? " is-down" :
+    sys && sys.level === "degraded" ? " is-degraded" : "";
   return (
     <footer className="ftr">
       <div className="ftr-top wrap-wide" data-comment-anchor="a2b78814b3-div-232-7">
@@ -239,9 +266,9 @@ function Footer({ t, go }) {
               <Icon name={copied ? "check" : "copy"} className="ftr-tax-ico" style={copied ? { color: "var(--accent)" } : null} />
             </button>
           </div>
-          <a href="https://status.simple.taipei/status/simple" target="_blank" rel="noopener noreferrer" className="ftr-status">
+          <a href={STATUS_PAGE} target="_blank" rel="noopener noreferrer" className={"ftr-status" + statusCls}>
             <span className="status-dot"></span>
-            <span className="kbd">{f.status}</span>
+            <span className="kbd">{statusLabel}</span>
           </a>
           <div className="ftr-social">
             <a href="https://www.linkedin.com/company/simple-information/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="icon-btn"><Icon name="linkedin" /></a>

@@ -490,10 +490,15 @@
 .ftr-status:hover { border-color: var(--line-2); background: var(--surface); }
 .ftr-status .kbd { font-size: 11.5px; letter-spacing: .01em; color: var(--ink-2); }
 .status-dot {
-  width: 7px; height: 7px; border-radius: 50%; background: oklch(0.72 0.17 150);
-  box-shadow: 0 0 0 0 oklch(0.72 0.17 150 / .6);
-  animation: pulse 2.4s infinite; flex-shrink: 0;
+  --dot: oklch(0.72 0.17 150); /* green; recolored per status state */
+  width: 7px; height: 7px; border-radius: 50%; background: var(--dot);
+  box-shadow: 0 0 0 0 var(--dot);
+  animation: status-pulse 2.4s infinite; flex-shrink: 0;
 }
+.ftr-status.is-degraded .status-dot { --dot: oklch(0.80 0.15 80); }  /* amber */
+.ftr-status.is-down .status-dot { --dot: oklch(0.62 0.22 27); }      /* red */
+@keyframes status-pulse { 0% { box-shadow: 0 0 0 0 var(--dot); } 70% { box-shadow: 0 0 0 8px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+/* boot splash dot keeps its own pulse */
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 oklch(0.72 0.17 150 / .5); } 70% { box-shadow: 0 0 0 8px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
 
 /* ============================================================
