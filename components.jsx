@@ -266,7 +266,7 @@ function Footer({ t, go }) {
               <Icon name={copied ? "check" : "copy"} className="ftr-tax-ico" style={copied ? { color: "var(--accent)" } : null} />
             </button>
           </div>
-          <a href={STATUS_PAGE} target="_blank" rel="noopener noreferrer" className={"ftr-status" + statusCls}>
+          <a href={STATUS_PAGE} target="_blank" rel="noopener noreferrer" aria-label={`${f.statusPageLabel || "System status"}: ${statusLabel}`} className={"ftr-status" + statusCls}>
             <span className="status-dot"></span>
             <span className="kbd">{statusLabel}</span>
           </a>

@@ -75,7 +75,7 @@ function HomePage({ t, motif, go }) {
                   <h3 className="svc-row-title">{s.title}</h3>
                   <p className="svc-row-desc">{s.desc}</p>
                 </div>
-                <a href={s.link} target="_blank" rel="noopener noreferrer" className="svc-row-cta">
+                <a href={s.link} target="_blank" rel="noopener noreferrer" className="svc-row-cta" aria-label={`${h.learnMore} – ${s.title}`}>
                   {h.learnMore}<Icon name="arrowUpRight" />
                 </a>
               </Reveal>

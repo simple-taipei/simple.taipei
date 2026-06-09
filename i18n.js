@@ -236,6 +236,7 @@ window.I18N = {
       status: "All systems operational",
       statusDegraded: "Partial outage · {n} affected",
       statusDown: "Major outage",
+      statusPageLabel: "System status",
     },
   },
 
@@ -473,6 +474,7 @@ window.I18N = {
       status: "所有系統運作正常",
       statusDegraded: "部分系統異常 · {n} 項",
       statusDown: "系統大規模中斷",
+      statusPageLabel: "系統狀態",
     },
   },
 };
