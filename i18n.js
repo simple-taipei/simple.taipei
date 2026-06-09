@@ -43,7 +43,7 @@ window.I18N = {
       items: [
         { name: "Fast-Line", img: (window.__resources && window.__resources.coopFastLine) || "public/coop/fast-line.webp", href: "https://www.fast-line.tw", role: "Connectivity partner" },
         { name: "Sky Digital", img: (window.__resources && window.__resources.coopSkyDigital) || "public/coop/skydigital.webp", href: "https://store.imcloud.tw/", role: "Connectivity partner" },
-        { name: "TWDS", img: (window.__resources && window.__resources.coopTWDS) || "public/coop/twds.webp", href: "https://www.twds.com.tw/", role: "Connectivity partner" },
+        { name: "Taiwan Digital Streaming", img: (window.__resources && window.__resources.coopTWDS) || "public/coop/twds.webp", href: "https://www.twds.com.tw/", role: "Connectivity partner" },
       ],
     },
     home: {
@@ -68,7 +68,7 @@ window.I18N = {
         { t: "Answerable to you", d: "A 24/7 SOC, transparent SLAs and people who pick up the phone. Simple to reach, simple to trust." },
       ],
       servicesEyebrow: "What we run",
-      servicesTitle: "Three ways to put our infrastructure to work",
+      servicesTitle: "Multiple ways to put our infrastructure to work",
       services: [
         {
           tag: "01", icon: "server",
@@ -80,11 +80,22 @@ window.I18N = {
             ["Storage", "SSD / HDD options"],
             ["Bandwidth", "100 Mbps – 10 Gbps"],
           ],
-          price: "from", priceVal: "US$210", priceUnit: "/mo",
           link: "https://portal.simple.taipei/index.php?rp=/store/taiwan-dedicated-server",
         },
         {
-          tag: "02", icon: "rack",
+          tag: "02", icon: "bolt",
+          title: "Cloud Computing",
+          desc: "Flexible virtual private servers on our own hardware — spin up in minutes with full root access and predictable pricing.",
+          specs: [
+            ["vCPU", "2 – 32 cores"],
+            ["RAM", "2 – 128 GB"],
+            ["Storage", "NVMe SSD"],
+            ["Bandwidth", "Burstable up to 10 Gbps"],
+          ],
+          link: "https://portal.simple.taipei/index.php?rp=/store/taiwan-vps",
+        },
+        {
+          tag: "03", icon: "rack",
           title: "Colocation",
           desc: "Secure, reliable colocation in our state-of-the-art data centers.",
           specs: [
@@ -93,11 +104,10 @@ window.I18N = {
             ["Cooling", "N+1 Cooling"],
             ["Security", "24/7 Manned Security"],
           ],
-          price: "from", priceVal: "US$108", priceUnit: "/mo",
           link: "https://portal.simple.taipei/index.php?rp=/store/server-colocation-taiwan",
         },
         {
-          tag: "03", icon: "globe",
+          tag: "04", icon: "globe",
           title: "IP Transit",
           desc: "High-speed, low-latency IP transit for global connectivity.",
           specs: [
@@ -106,7 +116,6 @@ window.I18N = {
             ["Routing", "Juniper, Cisco"],
             ["Support", "24/7 SOC"],
           ],
-          price: "from", priceVal: "US$0.3", priceUnit: "/Mbps/mo",
           link: "https://portal.simple.taipei/index.php?rp=/store/network-service-global",
         },
       ],
@@ -279,7 +288,7 @@ window.I18N = {
         { t: "以服務品質負責", d: "提供 24/7 資安維運中心（SOC）與透明的服務條款，並由專業團隊即時回應，值得企業長期信賴。" },
       ],
       servicesEyebrow: "我們經營的",
-      servicesTitle: "三種方案，靈活運用我們的基礎設施",
+      servicesTitle: "多種方案，靈活運用我們的基礎設施",
       services: [
         {
           tag: "01", icon: "server",
@@ -291,11 +300,22 @@ window.I18N = {
             ["儲存空間", "SSD / HDD 可選"],
             ["頻寬", "100 Mbps – 10 Gbps"],
           ],
-          price: "每月", priceVal: "NT$6,800", priceUnit: "起",
           link: "https://portal.simple.taipei/index.php?rp=/store/taiwan-dedicated-server",
         },
         {
-          tag: "02", icon: "rack",
+          tag: "02", icon: "bolt",
+          title: "雲端運算",
+          desc: "建立於自有硬體上的彈性虛擬私人伺服器，數分鐘內即可啟動，提供完整 root 權限與透明的計價方式。",
+          specs: [
+            ["vCPU", "2 – 32 核心"],
+            ["記憶體", "2 – 128 GB"],
+            ["儲存空間", "NVMe SSD"],
+            ["頻寬", "突發最高 10 Gbps"],
+          ],
+          link: "https://portal.simple.taipei/index.php?rp=/store/taiwan-vps",
+        },
+        {
+          tag: "03", icon: "rack",
           title: "主機託管",
           desc: "於先進資料中心提供安全可靠的主機代管服務。",
           specs: [
@@ -304,11 +324,10 @@ window.I18N = {
             ["冷卻", "N+1 冷卻"],
             ["安全", "24/7 人員駐守"],
           ],
-          price: "每月", priceVal: "NT$3,500", priceUnit: "起",
           link: "https://portal.simple.taipei/index.php?rp=/store/server-colocation-taiwan",
         },
         {
-          tag: "03", icon: "globe",
+          tag: "04", icon: "globe",
           title: "IP Transit",
           desc: "提供高速、低延遲的 IP Transit 服務，實現全球連線。",
           specs: [
@@ -317,7 +336,6 @@ window.I18N = {
             ["路由", "Juniper, Cisco"],
             ["支援", "24/7 SOC"],
           ],
-          price: "每月", priceVal: "NT$10", priceUnit: "/Mbps 起",
           link: "https://portal.simple.taipei/index.php?rp=/store/network-service-global",
         },
       ],

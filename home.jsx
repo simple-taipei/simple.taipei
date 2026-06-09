@@ -66,30 +66,18 @@ function HomePage({ t, motif, go }) {
             <Reveal><Eyebrow>{h.servicesEyebrow}</Eyebrow></Reveal>
             <Reveal delay={60}><h2 className="sec-title" data-comment-anchor="d739657876-h2-67-32">{h.servicesTitle}</h2></Reveal>
           </div>
-          <div className="svc-grid">
+          <div className="svc-list">
             {h.services.map((s, i) =>
-            <Reveal key={i} delay={i * 90} className="svc-card card">
-                <div className="svc-top">
-                  <span className="svc-tag kbd">{s.tag}</span>
-                  <span className="svc-ico"><Icon name={s.icon} /></span>
+            <Reveal key={i} delay={i * 70} className="svc-row">
+                <span className="svc-row-ico"><Icon name={s.icon} /></span>
+                <div className="svc-row-body">
+                  <span className="svc-row-tag kbd">{s.tag}</span>
+                  <h3 className="svc-row-title">{s.title}</h3>
+                  <p className="svc-row-desc">{s.desc}</p>
                 </div>
-                <h3 className="svc-title">{s.title}</h3>
-                <p className="svc-desc">{s.desc}</p>
-                <dl className="svc-specs">
-                  {s.specs.map((sp, j) =>
-                <div className="svc-spec" key={j}>
-                      <dt>{sp[0]}</dt>
-                      <dd>{sp[1]}</dd>
-                    </div>
-                )}
-                </dl>
-                <div className="svc-foot">
-                  <div className="svc-price">
-                    <span className="svc-price-pre kbd">{s.price}</span>
-                    <span className="svc-price-v">{s.priceVal}<span className="svc-price-u">{s.priceUnit}</span></span>
-                  </div>
-                  <a href={s.link} target="_blank" rel="noopener noreferrer" className="btn svc-btn">{h.learnMore}<Icon name="arrowUpRight" /></a>
-                </div>
+                <a href={s.link} target="_blank" rel="noopener noreferrer" className="svc-row-cta">
+                  {h.learnMore}<Icon name="arrowUpRight" />
+                </a>
               </Reveal>
             )}
           </div>

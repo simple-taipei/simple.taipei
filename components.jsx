@@ -232,10 +232,6 @@ function Footer({ t, go }) {
       <div className="ftr-top wrap-wide" data-comment-anchor="a2b78814b3-div-232-7">
         <div className="ftr-brand" data-comment-anchor="be9b4b041e-div-246-9">
           <img src={(window.__resources && window.__resources.logoSticker) || "public/logo-sticker.png"} alt="Simple Information" className="ftr-logo" />
-          <a href="https://lg.simple.taipei" target="_blank" rel="noopener noreferrer" className="ftr-status">
-            <span className="status-dot"></span>
-            <span className="kbd">{f.status}</span>
-          </a>
           <div className="ftr-brand-co">
             <p className="ftr-co">{f.companyName}</p>
             <button className="ftr-tax" onClick={copyTax} data-comment-anchor="ca1aebdde6-button-242-13">
@@ -243,6 +239,10 @@ function Footer({ t, go }) {
               <Icon name={copied ? "check" : "copy"} className="ftr-tax-ico" style={copied ? { color: "var(--accent)" } : null} />
             </button>
           </div>
+          <a href="https://lg.simple.taipei" target="_blank" rel="noopener noreferrer" className="ftr-status">
+            <span className="status-dot"></span>
+            <span className="kbd">{f.status}</span>
+          </a>
           <div className="ftr-social">
             <a href="https://www.linkedin.com/company/simple-information/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="icon-btn"><Icon name="linkedin" /></a>
             <a href="https://github.com/simple-taipei" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="icon-btn"><Icon name="github" /></a>
