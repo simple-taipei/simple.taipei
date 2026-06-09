@@ -1,0 +1,21 @@
+# OS / editor cruft
+.DS_Store
+*.pem
+.vscode/
+.idea/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dependencies (if tooling is added later)
+/node_modules
+
+# local env files
+.env
+.env*.local
+
+# zip / extracted handoff files
+*.zip
+/extracted/

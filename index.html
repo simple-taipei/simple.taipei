@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Information, Inc. — Complex infrastructure, made simple.</title>
+<meta name="description" content="Enterprise-grade dedicated servers, colocation and IP transit across Taipei, Singapore and Hong Kong.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="layout.css">
+
+<style>
+  /* page transition */
+  .page-fade { animation: pageFade .45s cubic-bezier(.2,.7,.3,1); }
+  @keyframes pageFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* tweak panel custom controls */
+  .tw-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 7px 0; }
+  .tw-row-label { font-size: 13px; font-weight: 500; color: var(--ink-2, #555); }
+  .tw-swatches { display: flex; gap: 8px; }
+  .tw-swatch {
+    width: 26px; height: 26px; border-radius: 50%; cursor: pointer;
+    background: var(--sw); border: 2px solid transparent;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.12) inset;
+    transition: transform .15s, box-shadow .15s; padding: 0;
+  }
+  .tw-swatch:hover { transform: scale(1.12); }
+  .tw-swatch.on { box-shadow: 0 0 0 2px var(--surface, #fff), 0 0 0 4px var(--sw); }
+
+  /* loading splash */
+  #boot { position: fixed; inset: 0; display: grid; place-items: center; background: var(--bg); z-index: 9999; transition: opacity .4s; }
+  #boot.gone { opacity: 0; pointer-events: none; }
+  #boot .dot { width: 9px; height: 9px; border-radius: 50%; background: oklch(0.72 0.17 150); animation: pulse 1.6s infinite; }
+</style>
+</head>
+<body>
+<div id="boot"><span class="dot"></span></div>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="i18n.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="home.jsx"></script>
+<script type="text/babel" src="pages.jsx"></script>
+<script type="text/babel" src="app.jsx" data-presets="react"></script>
+
+<script>
+  // hide boot splash once React paints
+  (function () {
+    const hide = () => { const b = document.getElementById("boot"); if (b) b.classList.add("gone"); };
+    const check = () => { if (document.querySelector("#root header")) hide(); else setTimeout(check, 120); };
+    setTimeout(check, 300);
+    setTimeout(hide, 4000);
+  })();
+</script>
+
+</body></html>
