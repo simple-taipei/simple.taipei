@@ -39,8 +39,7 @@
 }
 .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
 .brand-mark { height: 30px; width: auto; }
-:root[data-theme="dark"] .brand-mark,
-:root[data-theme="dark"] .ftr-logo { filter: invert(1) hue-rotate(180deg) brightness(1.4) saturate(0.6); }
+/* Dark mode shows logo-sticker.png as-is (no recoloring filter) */
 
 .hdr-nav {
   display: flex; align-items: center; gap: 4px;
