@@ -232,7 +232,6 @@ function Footer({ t, go }) {
       <div className="ftr-top wrap-wide" data-comment-anchor="a2b78814b3-div-232-7">
         <div className="ftr-brand" data-comment-anchor="be9b4b041e-div-246-9">
           <img src={(window.__resources && window.__resources.logoSticker) || "public/logo-sticker.png"} alt="Simple Information" className="ftr-logo" />
-          <p className="ftr-tag">{f.tagline}</p>
           <a href="https://lg.simple.taipei" target="_blank" rel="noopener noreferrer" className="ftr-status">
             <span className="status-dot"></span>
             <span className="kbd">{f.status}</span>
