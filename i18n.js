@@ -200,6 +200,21 @@ window.I18N = {
       sponsorTitle: "Tech Education Sponsorship Program",
       sponsorDesc: "Through equipment and cloud resource sponsorship, lending, and faculty support, we are committed to supporting technology education in schools across Taiwan, nurturing future information and technology professionals.",
       sponsorBtn: "View details",
+      sponsorModal: {
+        eyebrow: "Tech Education",
+        title: "Sponsorship Program Details",
+        desc: "Simple Information's Tech Education Sponsorship Program provides schools, student clubs, and non-profit tech communities with the infrastructure they need to learn, build, and grow — at no cost.",
+        items: [
+          ["What we provide", "Dedicated servers, VPS instances, cloud storage, and network resources"],
+          ["Eligibility", "Schools, student clubs, and non-profit tech communities in Taiwan"],
+          ["Duration", "Annual, renewable based on program activity"],
+          ["Support", "Technical onboarding and a dedicated point of contact"],
+          ["Cost", "Free of charge"],
+        ],
+        applyLabel: "How to apply",
+        applyDesc: "Send us a brief introduction of your organization, how you plan to use the resources, and your expected needs. We'll get back to you within 5 business days.",
+        applyBtn: "Apply via email",
+      },
       casesTitle: "Where it lands",
       cases: [
         { t: "NCKU Codpy Community", d: "Providing hardware equipment for events, supporting the open source robotics software community, and promoting open source innovation." },
@@ -422,6 +437,21 @@ window.I18N = {
       sponsorTitle: "科技教育贊助計畫",
       sponsorDesc: "透過設備與雲端資源贊助、借用與師資提供，我們致力支持台灣各級學校的科技教育，培養未來的資訊、科技中堅力量。",
       sponsorBtn: "查看詳情",
+      sponsorModal: {
+        eyebrow: "科技教育",
+        title: "贊助計畫詳情",
+        desc: "簡單資訊的科技教育贊助計畫，免費提供各級學校、學生社團與非營利科技社群所需的基礎設施資源，讓更多人能夠學習、創作與成長。",
+        items: [
+          ["提供內容", "實體伺服器、VPS、雲端儲存與網路資源"],
+          ["申請資格", "台灣境內各級學校、學生社團及非營利科技社群"],
+          ["贊助期限", "一年為期，依計畫活躍度續約"],
+          ["技術支援", "提供技術導入協助與專屬聯絡窗口"],
+          ["費用", "完全免費"],
+        ],
+        applyLabel: "如何申請",
+        applyDesc: "請來信簡述貴單位背景、資源使用規劃及預估需求，我們將於五個工作天內回覆。",
+        applyBtn: "寄信申請",
+      },
       casesTitle: "落地之處",
       cases: [
         { t: "成大開源機器人系統軟體社群", d: "提供活動硬體設備，支持開源機器人系統軟體社群，促進開源技術與創新。" },

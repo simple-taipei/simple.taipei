@@ -119,8 +119,49 @@ function PartnershipPage({ t, motif, go }) {
 /* ============================================================
    RESPONSIBILITY PAGE
    ============================================================ */
+function SponsorModal({ t, onClose }) {
+  const r = t.responsibility;
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+  }, []);
+  const m = r.sponsorModal;
+  return (
+    <div className="modal-scrim" onClick={onClose}>
+      <div className="modal" style={{ maxWidth: "600px" }} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+        <button className="modal-close icon-btn" onClick={onClose} aria-label="Close"><Icon name="close" /></button>
+        <div className="modal-body" style={{ paddingTop: "32px" }}>
+          <span className="eyebrow"><span className="tick"></span>{m.eyebrow}</span>
+          <h2 style={{ fontSize: "22px", fontWeight: 700, margin: "12px 0 8px", lineHeight: 1.3 }}>{m.title}</h2>
+          <p style={{ fontSize: "15px", color: "var(--ink-2)", lineHeight: 1.7, marginBottom: "28px" }}>{m.desc}</p>
+
+          <dl className="modal-specs">
+            {m.items.map(([dt, dd]) => (
+              <div className="modal-spec" key={dt}>
+                <dt>{dt}</dt>
+                <dd>{dd}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <div style={{ marginTop: "28px", padding: "20px", background: "var(--surface-2)", borderRadius: "12px", border: "1px solid var(--line)" }}>
+            <p style={{ fontSize: "13px", color: "var(--ink-3)", marginBottom: "6px", fontWeight: 600, textTransform: "uppercase", letterSpacing: ".08em" }}>{m.applyLabel}</p>
+            <p style={{ fontSize: "14.5px", color: "var(--ink-2)", lineHeight: 1.6, marginBottom: "16px" }}>{m.applyDesc}</p>
+            <a href="mailto:sales@simple.taipei" className="btn" style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+              {m.applyBtn}<Icon name="mail" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ResponsibilityPage({ t, motif, go }) {
   const r = t.responsibility;
+  const [sponsorOpen, setSponsorOpen] = useState(false);
   return (
     <main>
       <PageHero eyebrow={r.eyebrow} prefix={r.heroPrefix} rotating={r.rotating} title={r.title} subtitle={r.subtitle} cta={r.cta} ctaHref="#/responsibility" motif={motif} />
@@ -162,7 +203,7 @@ function ResponsibilityPage({ t, motif, go }) {
               <Eyebrow>{r.eyebrow}</Eyebrow>
               <h2 className="sec-title">{r.sponsorTitle}</h2>
               <p>{r.sponsorDesc}</p>
-              <a href="https://github.com/sitcon-tw/2026-cfs" target="_blank" rel="noopener noreferrer" className="tlink">{r.sponsorBtn}<Icon name="arrowUpRight" /></a>
+              <button onClick={() => setSponsorOpen(true)} className="tlink" style={{ background: "none", border: "none", cursor: "pointer", font: "inherit", color: "inherit", display: "inline-flex", alignItems: "center", gap: "6px", padding: 0 }}>{r.sponsorBtn}<Icon name="arrowUpRight" /></button>
             </div>
             <div className="rs-sponsor-deco">
               <Icon name="network" className="rs-sponsor-glyph" />
@@ -170,6 +211,8 @@ function ResponsibilityPage({ t, motif, go }) {
           </Reveal>
         </div>
       </section>
+
+      {sponsorOpen && <SponsorModal t={t} onClose={() => setSponsorOpen(false)} />}
 
       {/* Case studies */}
       <section className="section rs-cases">
