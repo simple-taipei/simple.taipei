@@ -42,7 +42,7 @@ export function Icon({ name, className, style }) {
 export function Logo({ onClick, compact }) {
   return (
     <a href="#/" onClick={onClick} className="brand" aria-label="Simple Information home">
-      <img src="/logo-sticker.png" alt="" className="brand-mark" />
+      <img src="/logo-sticker.webp" alt="" className="brand-mark" />
     </a>);
 }
 
@@ -252,7 +252,7 @@ export function Footer({ t, go }) {
     <footer className="ftr">
       <div className="ftr-top wrap-wide" data-comment-anchor="a2b78814b3-div-232-7">
         <div className="ftr-brand" data-comment-anchor="be9b4b041e-div-246-9">
-          <img src="/logo-sticker.png" alt="Simple Information" className="ftr-logo" />
+          <img src="/logo-sticker.webp" alt="Simple Information" className="ftr-logo" />
           <div className="ftr-brand-co">
             <p className="ftr-co">{f.companyName}</p>
             <button className="ftr-tax" onClick={copyTax} data-comment-anchor="ca1aebdde6-button-242-13">
