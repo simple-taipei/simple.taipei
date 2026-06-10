@@ -287,8 +287,8 @@ export const I18N = {
     home: {
       heroKicker: "台灣",
       heroKickerText: "雲端與資料中心基礎設施",
-      heroLeadPlain: "複雜的基礎設施，",
-      heroHandWord: "變得簡單。",
+      heroLeadPlain: "複雜的基礎設施",
+      heroHandWord: "變得簡單",
       heroSub: "簡單資訊橫跨台北、新加坡與香港，提供企業級實體伺服器、主機代管與 IP Transit 服務，協助企業穩健建構數位基礎架構。",
       heroCta: "查看服務",
       heroCta2: "客戶專區",
